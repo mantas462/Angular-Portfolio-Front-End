@@ -1,0 +1,84 @@
+<div id="contact">
+  <div class="card card-body bg-danger text-white py-5">
+    <h3><b>Get In Touch</b></h3>
+    <p>
+      Contact me by Facebook, Linkedin or just drop a message here:
+    </p>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform" id="myform">
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-danger text-white">
+              <i class="fa fa-user"></i>
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control bg-dark text-white"
+            placeholder="Your name"
+            name="name"
+            id="name"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-danger text-white">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+          <input
+            type="email"
+            class="form-control bg-dark text-white"
+            placeholder="Your email"
+            name="email"
+            id="email"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-danger text-white">
+              <i class="fa fa-pencil"></i>
+            </span>
+          </div>
+          <textarea
+            class="form-control bg-dark text-white"
+            placeholder="Your message"
+            name="message"
+            id="message"
+            ngModel
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        value="Submit"
+        class="btn btn-danger btn-block btn-lg border"
+        id="submitform"
+        [disabled]="!f.valid"
+      >
+        Submit
+      </button>
+    </form>
+
+    <p *ngIf="messageSent"><b>Message has been sent!!!</b></p>
+    <p *ngIf="errorHappened"><b>Error happened, sorry!</b></p>
+    <p *ngIf="loading">
+      <span style="font-size: 20px;"
+        >Please wait few seconds!!! You almost there!!!
+      </span>
+      <i class="text-white" nz-icon nzType="loading" nzTheme="outline"></i>
+    </p>
+  </div>
+</div>
